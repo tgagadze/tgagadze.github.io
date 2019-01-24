@@ -52,6 +52,7 @@ class Node{
 
 class LinkedList{
     constructor(){
+        this.list = {};
         this.head = null;
         this.tail = null;
         this.length = 0;
@@ -59,6 +60,7 @@ class LinkedList{
     push(val){
         let tmp = new Node(val);
         if(this.head == null){
+            this.list[this.length] = tmp;
             this.head = tmp;
             this.tail = tmp;
         }
@@ -77,9 +79,7 @@ class LinkedList{
 
 
 let sia = new LinkedList();
-sia.push('tornike');
-sia.push('mariam');
-sia.push('natia')
-sia.push('yuri')
-
+sia.push('torni');
+sia.push('rame');
+sia.push('rume');
 console.log(sia);
