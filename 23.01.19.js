@@ -52,7 +52,6 @@ class Node{
 
 class LinkedList{
     constructor(){
-        this.list = {};
         this.head = null;
         this.tail = null;
         this.length = 0;
@@ -60,7 +59,6 @@ class LinkedList{
     push(val){
         let tmp = new Node(val);
         if(this.head == null){
-            this.list[this.length] = tmp;
             this.head = tmp;
             this.tail = tmp;
         }
@@ -75,11 +73,55 @@ class LinkedList{
         // this.tail = null;
         return retVal;
     }
+    get(index) {
+        if(index < 0 || index > this.length){
+            return  console.log('Out of Range!!!');
+        }
+        let currentNode = this.head;
+        for(let i = 0; i < index; i++){
+            currentNode = currentNode.nextNode;
+        }
+        return currentNode;
+    }
+    delete(index){
+        if(index < 0 || index > this.length){
+            return  console.log('Out of Range!!!');
+        }
+        let currentNode = this.head;
+        if(index == 0){
+            this.head = this.head.nextNode;
+            this.length--;
+            return currentNode;
+        }
+        if(index == 1){
+            currentNode = currentNode.nextNode;
+            this.head.nextNode = currentNode.nextNode;
+            this.length--;
+            return currentNode;
+        }
+        if(index == this.length){
+            for(let i = 1; i < index; i++){
+                currentNode = currentNode.nextNode;
+            }    
+            this.tail = currentNode;
+            let retVal = currentNode.nextNode;
+            currentNode.nextNode = null;
+            return retVal;
+        }
+
+        for(let i = 1; i < index; i++){
+            currentNode = currentNode.nextNode;
+        }
+        let retVal = currentNode.nextNode;
+        currentNode.nextNode = currentNode.nextNode.nextNode;
+        this.length--;
+        return retVal;
+    }
+    print(){
+        let currentNode = this.head;
+        while(currentNode != null){
+            console.log(currentNode.value);
+            currentNode = currentNode.nextNode;
+        }
+    }
 }
-
-
-let sia = new LinkedList();
-sia.push('torni');
-sia.push('rame');
-sia.push('rume');
-console.log(sia);
