@@ -125,3 +125,24 @@ class LinkedList{
         }
     }
 }
+
+
+class Stack{
+    constructor(){
+        this.stack = {};
+        this._size = 0;
+    }
+    push(value){
+        this.stack[this._size] = value;
+        this._size++;
+    }
+    pop(){
+        let lastVal = this.stack[this._size];
+        delete this.stack[this._size];
+        this._size--;
+        return lastVal;
+    }
+    get size(){
+        return this._size;
+    }
+}
