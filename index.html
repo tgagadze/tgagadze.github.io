@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="src/css/styles.css" />
     <title>p5.js example</title>
     <style>
       body {
@@ -10,10 +11,29 @@
         margin: 0;
       }
     </style>
-    <script src="p5.min.js"></script>
-    <script src="addons/p5.dom.min.js"></script>
-    <script src="addons/p5.sound.min.js"></script>
-    <script src="sketch/sketch.js"></script>
+    <script src="../p5.min.js"></script>
+    <script src="../addons/p5.dom.min.js"></script>
+    <script src="src/Box.js"></script>
+    <script src="src/Bottle.js"></script>
+    <script src="src/sketch.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="content">
+      <div class="score">
+        <span class="stage"></span>
+        <span class="target"></span>
+        <span class="total_scores"></span>
+      </div>
+      <div class="image_container">
+        <img class="image" src="src/img/question.png" />
+      </div>
+      <div class="btn_container">
+        <button class="btn reset">Restart</button>
+        <button class="btn continue">Continue</button>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("contextmenu", event => event.preventDefault());
+    </script>
+  </body>
 </html>
