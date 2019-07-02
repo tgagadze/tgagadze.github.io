@@ -70,6 +70,7 @@ function resetSketch() {
 }
 
 function continueSketch() {
+  alert("dflskdflskdjf");
   loop();
 }
 
