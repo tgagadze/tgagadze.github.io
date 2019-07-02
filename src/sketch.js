@@ -1,7 +1,7 @@
 let box;
 let Bottles;
-let canvasWidth = 500;
-let canvasHeight = 650;
+let canvasWidth;
+let canvasHeight;
 
 let score = 0;
 let totalScores = 0;
@@ -31,6 +31,8 @@ function preload() {
   beerImage = loadImage("src/img/beer3.png");
   boxImage = loadImage("src/img/box.png");
   backgroundImage = loadImage("src/img/background.jpg");
+  canvasHeight = windowHeight;
+  canvasWidth = windowWidth;
 }
 
 function setup() {
@@ -38,17 +40,19 @@ function setup() {
   canvas.mouseClicked(continueSketch);
   box = new Box(25, canvasHeight - 90);
   Bottles = [];
-  stageSpan = document.querySelector(".stage");
-  targetSpan = document.querySelector(".target");
-  scoresTotalSpan = document.querySelector(".total_scores");
-  btnReset = document.querySelector(".reset");
-  btnContinue = document.querySelector(".continue");
+  // stageSpan = document.querySelector(".stage");
+  // targetSpan = document.querySelector(".target");
+  // scoresTotalSpan = document.querySelector(".total_scores");
+  // btnReset = document.querySelector(".reset");
+  // btnContinue = document.querySelector(".continue");
 
-  btnReset.addEventListener("click", resetSketch);
-  btnContinue.addEventListener("click", continueSketch);
+  // btnReset.addEventListener("click", resetSketch);
+  // btnContinue.addEventListener("click", continueSketch);
 
   textSize(fontsize);
   textAlign(CENTER, CENTER);
+
+  console.log(windowWidth, windowHeight);
 }
 
 function resetSketch() {
@@ -132,7 +136,7 @@ function draw() {
     );
     noLoop();
   }
-  stageSpan.innerHTML = "Stage: " + stage;
-  targetSpan.innerHTML = `Target: ${score}/${scoreTarget}`;
-  scoresTotalSpan.innerHTML = `Scores Total: ${totalScores}`;
+  // stageSpan.innerHTML = "Stage: " + stage;
+  // targetSpan.innerHTML = `Target: ${score}/${scoreTarget}`;
+  // scoresTotalSpan.innerHTML = `Scores Total: ${totalScores}`;
 }
